@@ -51,9 +51,8 @@ dependencies {
     implementation tomTomLibraries.locationSimulation
     implementation tomTomLibraries.locationMapmatched
     implementation tomTomLibraries.mapsDisplay
-    implementation tomTomLibraries.navigation
+    implementation tomTomLibraries.navigationOnline
     implementation tomTomLibraries.navigationUi
-    implementation tomTomLibraries.navigationRouteReplanner
     implementation tomTomLibraries.searchOnline
     implementation tomTomLibraries.searchUi
 

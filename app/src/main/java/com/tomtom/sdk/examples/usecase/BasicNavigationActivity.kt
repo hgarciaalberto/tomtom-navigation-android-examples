@@ -47,7 +47,8 @@ import com.tomtom.sdk.navigation.ProgressUpdatedListener
 import com.tomtom.sdk.navigation.RoutePlan
 import com.tomtom.sdk.navigation.TomTomNavigation
 import com.tomtom.sdk.navigation.TomTomNavigationFactory
-import com.tomtom.sdk.navigation.routereplanner.DefaultRouteReplanner
+import com.tomtom.sdk.navigation.online.ExperimentalOnlineNavigationFactory
+import com.tomtom.sdk.navigation.online.createOnlineNavigation
 import com.tomtom.sdk.navigation.routereplanner.RouteReplanner
 import com.tomtom.sdk.navigation.ui.NavigationFragment
 import com.tomtom.sdk.navigation.ui.NavigationUiOptions
@@ -83,7 +84,6 @@ class BasicNavigationActivity : AppCompatActivity() {
     private lateinit var locationProvider: LocationProvider
     private lateinit var onLocationUpdateListener: OnLocationUpdateListener
     private lateinit var routePlanner: RoutePlanner
-    private lateinit var routeReplanner: RouteReplanner
     private var route: Route? = null
     private lateinit var routePlanningOptions: RoutePlanningOptions
     private lateinit var tomTomNavigation: TomTomNavigation
@@ -140,20 +140,14 @@ class BasicNavigationActivity : AppCompatActivity() {
     private fun initRouting() {
         routePlanner =
             OnlineRoutePlanner.create(context = this, apiKey = apiKey)
-        routeReplanner = DefaultRouteReplanner.create(routePlanner)
     }
 
     /**
      * To use navigation in the application, start by by initialising the navigation configuration.
      */
+    @OptIn(ExperimentalOnlineNavigationFactory::class)
     private fun initNavigation() {
-        val navigationConfiguration = NavigationConfiguration(
-            context = this,
-            apiKey = apiKey,
-            locationProvider = locationProvider,
-            routeReplanner = routeReplanner
-        )
-        tomTomNavigation = TomTomNavigationFactory.create(navigationConfiguration)
+        tomTomNavigation = TomTomNavigationFactory.createOnlineNavigation(this.applicationContext, apiKey, locationProvider, routePlanner)
     }
 
     /**
