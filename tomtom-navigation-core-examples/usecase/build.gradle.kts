@@ -32,12 +32,12 @@ android {
     }
 
     kotlinOptions {
-        allWarningsAsErrors = true
+//        allWarningsAsErrors = true
         jvmTarget = "1.8"
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.11"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
 
     buildFeatures {
@@ -57,6 +57,14 @@ dependencies {
     implementation(libs.navigationUi)
     implementation(libs.routePlannerOnline)
     implementation(libs.routeReplannerOnline)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose.android)
+
+    // Accompanist
+    implementation(libs.accompanist.permissions)
+
+    // Flexible Bottom Sheet
+    implementation(libs.flexible.bottomsheet.material3)
 
     // Android dependencies.
     implementation(libs.bundles.androidCommon)
@@ -64,4 +72,7 @@ dependencies {
     // Compose
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.androidCompose)
+
+    // Timber
+    implementation(libs.timber)
 }

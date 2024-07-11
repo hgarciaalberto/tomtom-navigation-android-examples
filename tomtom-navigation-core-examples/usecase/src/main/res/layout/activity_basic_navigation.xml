@@ -8,13 +8,15 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map_container"
+        android:name="com.tomtom.sdk.map.display.ui.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:mapKey="ADD_YOUR_KEY" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/navigation_fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/map_container" />
+    <!--    <androidx.fragment.app.FragmentContainerView-->
+    <!--        android:id="@+id/navigation_fragment_container"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/map_container" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

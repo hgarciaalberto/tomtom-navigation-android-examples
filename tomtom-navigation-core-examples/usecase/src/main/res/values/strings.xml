@@ -12,4 +12,11 @@
 
 <resources>
     <string name="location_permission_denied">Permission denied</string>
+
+    <!-- Permissions -->
+    <string name="permission_request">Request permissions</string>
+    <string name="permission_location_title">Location Permission</string>
+    <string name="permission_location_rationale">MIVIA requires your location permission to navigate you across routes, and show your proximity to other drivers nearby.</string>
+    <string name="permission_post_notifications_title">Post Notification Permission</string>
+    <string name="permission_post_notifications_rationale">Please grant Notifications for the app to function properly</string>
 </resources>
